@@ -1,0 +1,104 @@
+\documentclass[12pt,conference,onecolumn]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage[labelfont=bf]{caption}
+% \usepackage[superscript,nomove]{cite}
+\usepackage[table,xcdraw,svgnames]{xcolor}
+% \usepackage{authblk}
+% \renewcommand*{\Affilfont}{\bfseries}
+\makeatletter
+\renewcommand{\@biblabel}[1]{\hfill #1.}
+\makeatother
+\usepackage{fancyvrb,fvextra}
+\fvset{breaklines}
+\usepackage{multirow, multicol, booktabs,longtable,siunitx,xltabular,makecell}
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{lscape}
+
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{mathsetup}
+
+\renewcommand{\cellalign}{tl}
+\renewcommand{\theadalign}{tl}
+\usepackage[stable,hang]{footmisc}
+\usepackage{bm}
+\usepackage[
+    backend=biber, 
+    style=ieee, url=false,
+    natbib=true,
+    backend=biber,
+    citestyle=numeric-comp
+]{biblatex}
+\addbibresource{../refs.bib}
+\newcommand{\citeauthoryear}[1]{\citeauthor{#1} (\citeyear{#1})}
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}%
+  \bibopenbracket}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}\bibclosebracket}
+\let\oldcite\cite
+\let\cite\supercite
+\usepackage[subpreambles=true]{standalone}
+\usepackage{pgfgantt}
+
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=purple,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={},
+    pdfpagemode=FullScreen,
+}
+
+\title{
+    
+}
+
+\author{\IEEEauthorblockN{Alessandro Shapiro}
+\IEEEauthorblockA{Bradley Department of Electrical and Computer Engineering\\
+Virginia Tech\\
+Blacksburg, Virginia\\
+Email: 
+\texttt{ams557@vt.edu}}
+\and
+\IEEEauthorblockN{Patrick Mountcastle}
+\IEEEauthorblockA{Bradley Department of Electrical and Computer Engineering\\
+Virginia Tech\\
+Blacksburg Virginia, USA}
+}
+
+\usepackage{cleveref}
+
+\usepackage{float,newfloat}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+\input{sections/1-intro.tex}
+\section{Problem Formulation}
+\input{sections/2-methods.tex}
+\section{Proposed Methodology}
+\input{sections/3-results.tex}
+\section{Proposed Methodology}
+\input{sections/4-conclusions.tex}
+\clearpage
+\printbibliography
+
+\end{document}
